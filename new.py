@@ -32,6 +32,7 @@ model = GPT2LMHeadModel.from_pretrained('byeongal/Ko-DialoGPT').to(device)
 past_user_inputs = []
 generated_responses = []
 
+@app.route('/conversation', methods=["POST"])
 def generate():
     user_input = request.json["text"]
     text_idx = tokenizer.encode(user_input + tokenizer.eos_token, return_tensors='pt')
@@ -67,10 +68,6 @@ def generate():
         "result": bot_response
     }
 
-
-@app.route('/conversation', methods=["POST"])
-def conversation():
-    return generate(request.json["text"])
 
 if __name__ == "__main__":
     app.run('0.0.0.0', 5050, False)
