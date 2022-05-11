@@ -1,6 +1,6 @@
 FROM python:3
 
-RUN pip install flask transformers
+RUN pip install flask transformers torch tensorflow
 
 COPY new.py /
 
