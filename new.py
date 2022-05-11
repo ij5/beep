@@ -12,6 +12,8 @@ pipe = TextClassificationPipeline(
 )
 
 from flask import Flask, jsonify, request
+import torch
+
 app = Flask(__name__)
 
 @app.route('/detect', methods=["POST"])
