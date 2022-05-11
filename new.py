@@ -21,4 +21,4 @@ def detect():
     return jsonify(pipe(text))
 
 if __name__ == "__main__":
-    app.run('127.0.0.1', 5050, False)
+    app.run('0.0.0.0', 5050, False)
